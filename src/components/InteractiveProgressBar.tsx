@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 const InteractiveProgressBar: React.FC = () => {
-  const [value, setValue] = useState<number>(0);
+  const [value, setValue] = useState<number>(70);
 
   const progress = Math.min(Math.max(value, 0), 100);
 
   return (
-    <div className="flex items-center">
+    <div className="flex flex-col">
       <div className="w-[500px] bg-gray-200 rounded-full h-4 overflow-hidden shadow-sm mx-4 mt-2">
         <div
           className={`h-4 ${
@@ -21,11 +21,9 @@ const InteractiveProgressBar: React.FC = () => {
           <span className="text-white">{`${progress}%`}</span>
         </div>
       </div>
-      <div className="mb-4">
+      <div className="m-4">
         <input
-          type="number"
-          min="0"
-          max="100"
+          type="text"
           value={progress}
           onChange={(e) => setValue(Number(e.target.value))}
           placeholder="Enter value (0–100)"
